@@ -1,0 +1,13 @@
+def printPascal(n:int):
+    # Write your code here.
+    # Return a list of lists.
+    arr=[]
+    for i in range(n):
+        mat=[]
+        for j in range(i+1):
+            if j==0 or i==j:
+                mat.append(1)
+            else:
+                mat.append(arr[i-1][j-1]+arr[i-1][j])
+        arr.append(mat) 
+    return arr
