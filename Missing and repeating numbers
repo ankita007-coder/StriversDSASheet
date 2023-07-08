@@ -1,0 +1,22 @@
+from math import *
+from collections import *
+from sys import *
+from os import *
+
+def missingAndRepeating(arr, n):
+    # Write your code here
+
+    s1n = (n*(n+1))//2
+    s2n = (n*(n+1)*(2*n+1))//6
+    s1 = 0
+    s2 = 0
+    for i in arr:
+        s1+=i
+        s2+= (i*i)
+    missing,repeating = -1,-1
+    diff1 = s1-s1n
+    temp = s2-s2n
+    diff2 = temp//diff1
+    repeating = (diff1+diff2)//2
+    missing = diff2-repeating
+    return [missing,repeating]
