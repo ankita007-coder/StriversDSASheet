@@ -1,0 +1,17 @@
+def searchMatrix(mat: [[int]], target: int) -> bool:
+    # Write your code here.
+    low = 0
+    if len(mat)==0:
+        return False
+    high = (len(mat) * len(mat[0])) - 1
+
+
+    while low <= high:
+        mid = (low + (high - low) // 2)
+        if mat[mid // len(mat[0])][mid % len(mat[0])] == target:
+            return True
+        if mat[mid // len(mat[0])][mid % len(mat[0])] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return False
