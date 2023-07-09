@@ -1,0 +1,31 @@
+#Majority element(>n/2)
+
+from math import *
+from collections import *
+from sys import *
+from os import *
+
+def findMajorityElement(arr, n):
+	# Write your code here.
+	count = 0
+	el=0
+	for i in range(n):
+		if count == 0:
+			count = 1
+			el = arr[i]
+		elif el == arr[i]:
+			count += 1
+		else:
+			count -= 1
+
+	# Checking if the stored element is the majority element
+	cnt1 = 0
+	for i in range(n):
+		if arr[i] == el:
+			cnt1 += 1
+
+	if cnt1 > (n / 2):
+		return el
+	return -1
+
+	pass
