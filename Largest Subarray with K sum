@@ -1,0 +1,22 @@
+#Longest Subarray Zero Sum
+def LongestSubsetWithZeroSum(a):
+
+    # Write your Code here.
+    # Return an integer denoting the answer.
+    n = len(a)
+    d = {}
+    sum = 0
+    maxi = 0
+    for i in range(n):
+        sum += a[i]
+        if sum == 0:
+            maxi = i+1
+        else:
+            if sum in d:
+                maxi = max(i-d[sum],maxi)
+            else:
+                d[sum]=i
+    return maxi
+
+
+    pass
