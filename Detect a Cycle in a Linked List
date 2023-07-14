@@ -1,0 +1,23 @@
+#using fast and slow pointer approach
+'''
+Following is the structure of the Node class already defined.
+
+class Node :
+    def __init__(self, data) :
+        self.data = data
+        self.next = None
+'''
+
+def detectCycle(head) :
+    # Write your code here.
+    if head is None or head.next is None:
+        return False
+    slow,fast = head,head
+    while fast.next != None and fast.next.next!=None:
+        fast = fast.next.next
+        slow = slow.next
+        if fast == slow:
+            return True
+    return False
+    pass
+    
