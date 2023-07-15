@@ -1,0 +1,103 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+from sys import stdin
+
+#Following is the class structure of the LinkedListNode class:
+class Node:
+    def __init__(self,data):
+        
+        self.data = data
+        self.next = None
+            
+def reverseLinkedList(head):
+    # Write your code here.
+
+    dummy = None
+    while head:
+        newNode = head.next
+        head.next = dummy
+        dummy = head
+        head = newNode
+    return dummy
+            
+def isPalindrome(head):
+    slow,fast = head,head
+    if head is None or head.next is None:
+        return True
+    while fast.next and fast.next.next:
+        slow = slow.next
+        fast = fast.next.next
+    slow.next = reverseLinkedList(slow.next)
+    slow = slow.next
+    while slow:
+        if slow.data!=head.data:
+            return False
+        slow = slow.next
+        head = head.next
+    return True
+    # Write your code here.
+    pass
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+def takeinput():
+    
+    inputlist=[int(ele) for ele in input().split()]
+    
+    head=None
+    tail=None
+    
+    for currentData in inputlist:
+        
+        if currentData == -1:
+            break
+        
+        Newnode=Node(currentData)
+        
+        if head is None:
+            head=Newnode
+            tail=Newnode
+        else:
+            tail.next=Newnode
+            tail=Newnode
+            
+    return head
+
+
+
+
+
+
+
+#Main
+t = int(stdin.readline().rstrip())
+
+while t > 0:
+    
+    head = takeinput()
+    
+    if isPalindrome(head):
+        print('true')
+    else:
+        print('false')
+        
+    t -= 1
