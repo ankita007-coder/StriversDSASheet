@@ -1,0 +1,29 @@
+'''
+Following is the structure of the Node class already defined.
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        
+'''
+
+def firstNode(head):
+    # Write your code here
+    if head==None or head.next==None:
+        return None
+    slow,fast,entry = head,head,head
+    i = None
+    c=0
+    while fast.next!=None and fast.next.next!=None:
+        slow = slow.next
+        fast = fast.next.next
+        if fast==slow:
+            while slow != entry:
+                slow = slow.next
+                entry = entry.next
+            return slow
+            
+
+
+    pass
