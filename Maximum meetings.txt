@@ -1,0 +1,28 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+def maxMeeting(l,N):
+    ans=[]
+    l.sort(key=lambda x:x[1])
+    #print(l)
+    ans.append(l[0][2])
+    time = l[0][1]
+    for i in range(N):
+        if l[i][0]>time:
+            ans.append(l[i][2])
+            time = l[i][1]
+    #print(ans)
+    return ans
+    
+    
+def maximumMeetings(start, end):
+    # Write your Code here.
+    l=[]
+    for i in range(len(start)):
+        l.append([start[i],end[i],i])
+    res = maxMeeting(l,len(start))
+    for i in range(len(res)):
+        res[i]=res[i]+1
+    return res
+ 
