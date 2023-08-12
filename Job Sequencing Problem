@@ -1,0 +1,29 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def jobScheduling(jobs):
+
+    # Write your code here
+    # Return an integer denoting the maximum pofit  
+    jobs.sort(key=lambda x:x[1])
+    jobs = jobs[::-1]
+    maxi = 0
+    for i in range(len(jobs)):
+        if jobs[i][0]>maxi:
+            maxi = jobs[i][0]
+    result = [-1]*(maxi+1)
+    profit=0
+    c = 0
+    for i in range(len(jobs)):
+        j = jobs[i][0]
+        while j>0:
+            if result[j]==-1:
+                result[j]=i
+                c+=1
+                profit+= jobs[i][1]
+                break
+            j-=1
+    return [c,profit]            
+    pass
