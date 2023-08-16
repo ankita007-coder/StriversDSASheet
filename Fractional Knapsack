@@ -1,0 +1,20 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+def maximumValue(items, n, w):
+
+	# Write your code here.
+	# ITEMS contains [weight, value] pairs.
+	final = 0
+	items.sort(key=lambda x:x[1]/x[0],reverse=True)
+	for i in items:
+		if i[0]<=w:
+			w-=i[0]
+			final+=i[1]
+		else:
+			final+= (i[1]*(w/i[0]))
+			break
+	return final
+	pass

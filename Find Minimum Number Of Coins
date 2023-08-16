@@ -1,0 +1,12 @@
+from typing import List
+
+def MinimumCoins(n: int) -> List[int]:
+    # write your code here
+    deno = [1000,500,100,50,20,10,5,2,1]
+    arr = []
+    for i in deno:
+        while n>=i and n>0:
+            n = n-i
+            arr.append(i)
+    return arr
+    pass
